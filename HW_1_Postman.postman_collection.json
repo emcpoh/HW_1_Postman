@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "de967bca-d0b6-4dce-a438-afc21f6ca930",
+		"name": "HW_1_Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24660068"
+	},
+	"item": [
+		{
+			"name": "EP_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson[0]).to.be.a('string');\r",
+							"    pm.expect(responseJson[1]).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://162.55.220.72:5005/get_method?name={{name}}&age={{age}}",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"get_method"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"const salary = parseInt(pm.environment.get(\"salary\"));\r",
+							"const name = pm.environment.get(\"name\");\r",
+							"const age = parseInt(pm.environment.get(\"age\"));\r",
+							"const u_salary_1_5_year = salary * 4;\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson.name).to.be.a('string');\r",
+							"    pm.expect(responseJson.age).to.be.a('number');\r",
+							"    pm.expect(responseJson.salary).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.children[0][0]).to.be.a('string');\r",
+							"    pm.expect(responseJson.family.children[0][1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.children[1][0]).to.be.a('string');\r",
+							"    pm.expect(responseJson.family.children[1][1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.u_salary_1_5_year).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка name\", function () {\r",
+							"  pm.expect(responseJson.name).to.equal(name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка age\", function () {\r",
+							"  pm.expect(responseJson.age).to.equal(age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка salary\", function () {\r",
+							"  pm.expect(responseJson.salary).to.equal(salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка salary\", function () {\r",
+							"  pm.expect(responseJson.family.u_salary_1_5_year).to.equal(u_salary_1_5_year);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[0][0]\", function () {\r",
+							"  pm.expect(responseJson.family.children[0][0]).to.equal('Alex');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[0][1]\", function () {\r",
+							"  pm.expect(responseJson.family.children[0][1]).to.equal(24);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[1][0]\", function () {\r",
+							"  pm.expect(responseJson.family.children[1][0]).to.equal('Kate');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[1][1]\", function () {\r",
+							"  pm.expect(responseJson.family.children[1][1]).to.equal(12);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/user_info_3",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"user_info_3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"const weight = parseInt(pm.environment.get(\"weight\"));\r",
+							"const name = pm.environment.get(\"name\");\r",
+							"const age = parseInt(pm.environment.get(\"age\"));\r",
+							"const expectedDailyFood = weight * 0.012;\r",
+							"const expectedDailySleep = weight * 2.5;\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson.name).to.be.a('string');\r",
+							"    pm.expect(responseJson.age).to.be.a('number');\r",
+							"    pm.expect(responseJson.daily_food).to.be.a('number');\r",
+							"    pm.expect(responseJson.daily_sleep).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка name\", function () {\r",
+							"  pm.expect(responseJson.name).to.equal(name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка age\", function () {\r",
+							"  pm.expect(responseJson.age).to.equal(age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка daily_food\", function () {\r",
+							"  pm.expect(responseJson.daily_food).to.equal(expectedDailyFood);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка daily_sleep\", function () {\r",
+							"  pm.expect(responseJson.daily_sleep).to.equal(expectedDailySleep);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://162.55.220.72:5005/object_info_1?name={{name}}&age={{age}}&weight={{weight}}",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"object_info_1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "weight",
+							"value": "{{weight}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"const salary = parseInt(pm.environment.get(\"salary\"));\r",
+							"const name = pm.environment.get(\"name\");\r",
+							"const age = parseInt(pm.environment.get(\"age\"));\r",
+							"\r",
+							"const start_qa_salary = salary;\r",
+							"const qa_salary_after_6_months = salary * 2;\r",
+							"const qa_salary_after_12_months = salary * 2.7;\r",
+							"const qa_salary_after_1_5_year = salary * 3.3;\r",
+							"const qa_salary_after_3_5_years = salary * 3.8;\r",
+							"const u_salary_5_years = salary * 4.2;\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson['start_qa_salary']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_6_months']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_12_months']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_1.5_year']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_3.5_years']).to.be.a('number');\r",
+							"    pm.expect(responseJson.person['u_salary_5_years']).to.be.a('number');\r",
+							"    pm.expect(responseJson.person['u_name'][0]).to.be.a('string');\r",
+							"    pm.expect(responseJson.person['u_name'][1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.person['u_name'][2]).to.be.a('number');\r",
+							"    pm.expect(responseJson.person['u_age']).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка start_qa_salary\", function () {\r",
+							"  pm.expect(responseJson['start_qa_salary']).to.equal(start_qa_salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_6_months\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_6_months']).to.equal(qa_salary_after_6_months);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_12_months\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_12_months']).to.equal(qa_salary_after_12_months);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_1.5_year\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_1.5_year']).to.equal(qa_salary_after_1_5_year);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_3.5_years\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_3.5_years']).to.equal(qa_salary_after_3_5_years);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_salary_5_years\", function () {\r",
+							"  pm.expect(responseJson.person['u_salary_5_years']).to.equal(u_salary_5_years);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_name[0]\", function () {\r",
+							"  pm.expect(responseJson.person['u_name'][0]).to.equal(name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_name[1]\", function () {\r",
+							"  pm.expect(responseJson.person['u_name'][1]).to.equal(salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_name[2]\", function () {\r",
+							"  pm.expect(responseJson.person['u_name'][2]).to.equal(age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_age\", function () {\r",
+							"  pm.expect(responseJson.person['u_age']).to.equal(age);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://162.55.220.72:5005/object_info_2?name={{name}}&age={{age}}&salary={{salary}}",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"object_info_2"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"const salary = parseInt(pm.environment.get(\"salary\"));\r",
+							"const name = pm.environment.get(\"name\");\r",
+							"const age = parseInt(pm.environment.get(\"age\"));\r",
+							"const u_salary_1_5_year = salary * 4;\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson.family['u_salary_1_5_year']).to.be.a('number');\r",
+							"    pm.expect(responseJson.age).to.be.a('number');\r",
+							"    pm.expect(responseJson.name).to.be.a('string');\r",
+							"    pm.expect(responseJson.salary).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.children[0][0]).to.be.a('string');\r",
+							"    pm.expect(responseJson.family.children[0][1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.children[1][0]).to.be.a('string');\r",
+							"    pm.expect(responseJson.family.children[1][1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.pets.cat.age).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.pets.cat.name).to.be.a('string');\r",
+							"    pm.expect(responseJson.family.pets.dog.age).to.be.a('number');\r",
+							"    pm.expect(responseJson.family.pets.dog.name).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_salary_1_5_year\", function () {\r",
+							"  pm.expect(responseJson.family['u_salary_1_5_year']).to.equal(u_salary_1_5_year);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка age\", function () {\r",
+							"  pm.expect(responseJson.age).to.equal(age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка name\", function () {\r",
+							"  pm.expect(responseJson.name).to.equal(name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка salary\", function () {\r",
+							"  pm.expect(responseJson.salary).to.equal(salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[0][0]\", function () {\r",
+							"  pm.expect(responseJson.family.children[0][0]).to.equal('Alex');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[0][1]\", function () {\r",
+							"  pm.expect(responseJson.family.children[0][1]).to.equal(24);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[1][0]\", function () {\r",
+							"  pm.expect(responseJson.family.children[1][0]).to.equal('Kate');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.children[1][1]\", function () {\r",
+							"  pm.expect(responseJson.family.children[1][1]).to.equal(12);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.pets.cat.age\", function () {\r",
+							"  pm.expect(responseJson.family.pets.cat.age).to.equal(3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.pets.cat.name\", function () {\r",
+							"  pm.expect(responseJson.family.pets.cat.name).to.equal('Sunny');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.pets.dog.age\", function () {\r",
+							"  pm.expect(responseJson.family.pets.dog.age).to.equal(4);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка family.pets.dog.name\", function () {\r",
+							"  pm.expect(responseJson.family.pets.dog.name).to.equal('Luky');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://162.55.220.72:5005/object_info_3?name={{name}}&age={{age}}&salary={{salary}}",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"const salary = parseInt(pm.environment.get(\"salary\"));\r",
+							"const name = pm.environment.get(\"name\");\r",
+							"const age = parseInt(pm.environment.get(\"age\"));\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson.age).to.be.a('number');\r",
+							"    pm.expect(responseJson.name).to.be.a('string');\r",
+							"    pm.expect(responseJson.salary[0]).to.be.a('number');\r",
+							"    pm.expect(responseJson.salary[1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.salary[2]).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка age\", function () {\r",
+							"  pm.expect(responseJson.age).to.equal(age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка name\", function () {\r",
+							"  pm.expect(responseJson.name).to.equal(name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка salary[0]\", function () {\r",
+							"  pm.expect(responseJson.salary[0]).to.equal(salary*1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка salary[1]\", function () {\r",
+							"  pm.expect(responseJson.salary[1]).to.equal(salary*2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка salary[2]\", function () {\r",
+							"  pm.expect(responseJson.salary[2]).to.equal(salary*3);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://162.55.220.72:5005/object_info_4?name={{name}}&age={{age}}&salary={{salary}}",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();\r",
+							"\r",
+							"const salary = parseInt(pm.environment.get(\"salary\"));\r",
+							"const name = pm.environment.get(\"name\");\r",
+							"const age = parseInt(pm.environment.get(\"age\"));\r",
+							"\r",
+							"const start_qa_salary = salary;\r",
+							"const qa_salary_after_6_months = salary * 2;\r",
+							"const qa_salary_after_12_months = salary * 2.7;\r",
+							"const qa_salary_after_1_5_year = salary * 3.3;\r",
+							"const qa_salary_after_3_5_years = salary * 3.8;\r",
+							"const u_salary_5_years = salary * 4.2;\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Проверка типа переменных\", function () {\r",
+							"    pm.expect(responseJson['start_qa_salary']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_1.5_year']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_12_months']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_3.5_years']).to.be.a('number');\r",
+							"    pm.expect(responseJson['qa_salary_after_6_months']).to.be.a('number');\r",
+							"    pm.expect(responseJson.person['u_salary_5_years']).to.be.a('number');\r",
+							"    pm.expect(responseJson.person['u_age']).to.be.a('number');\r",
+							"    pm.expect(responseJson.person.u_name[0]).to.be.a('string');\r",
+							"    pm.expect(responseJson.person.u_name[1]).to.be.a('number');\r",
+							"    pm.expect(responseJson.person.u_name[2]).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка start_qa_salary\", function () {\r",
+							"  pm.expect(responseJson['start_qa_salary']).to.equal(start_qa_salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_6_months\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_6_months']).to.equal(qa_salary_after_6_months);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_12_months\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_12_months']).to.equal(qa_salary_after_12_months);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_1.5_year\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_1.5_year']).to.equal(qa_salary_after_1_5_year);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка qa_salary_after_3.5_years\", function () {\r",
+							"  pm.expect(responseJson['qa_salary_after_3.5_years']).to.equal(qa_salary_after_3_5_years);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_salary_5_years\", function () {\r",
+							"  pm.expect(responseJson.person['u_salary_5_years']).to.equal(u_salary_5_years);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_age\", function () {\r",
+							"  pm.expect(responseJson.person['u_age']).to.equal(age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_age\", function () {\r",
+							"  pm.expect(responseJson.person.u_name[0]).to.equal(name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_age\", function () {\r",
+							"  pm.expect(responseJson.person.u_name[1]).to.equal(salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Проверка u_age\", function () {\r",
+							"  pm.expect(responseJson.person.u_name[2]).to.equal(age);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/user_info_2",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "weight",
+			"value": ""
+		}
+	]
+}

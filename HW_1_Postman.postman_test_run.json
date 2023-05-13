@@ -1,0 +1,509 @@
+{
+	"id": "6880728b-9670-4417-a799-516d71ab8ccd",
+	"name": "HW_1_Postman",
+	"timestamp": "2023-05-13T10:57:47.916Z",
+	"collection_id": "24660068-de967bca-d0b6-4dce-a438-afc21f6ca930",
+	"folder_id": 0,
+	"environment_id": "24660068-1e974477-6c04-447e-b563-ab5b8eb468a7",
+	"totalPass": 49,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-05-13T10:57:46.291Z",
+	"totalFail": 7,
+	"results": [
+		{
+			"id": "a61e7fb9-30ea-415b-af4a-e803e579e8dc",
+			"name": "EP_1",
+			"url": "http://162.55.220.72:5005/get_method?name=Sergei&age=23",
+			"time": 110,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": true
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				110
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": true
+				}
+			]
+		},
+		{
+			"id": "cc94da3a-f60e-4bcf-9a24-4d6e4d74f837",
+			"name": "EP_2",
+			"url": "http://162.55.220.72:5005/user_info_3",
+			"time": 113,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": false,
+				"Проверка name": true,
+				"Проверка age": false,
+				"Проверка salary": true,
+				"Проверка family.children[0][0]": true,
+				"Проверка family.children[0][1]": true,
+				"Проверка family.children[1][0]": true,
+				"Проверка family.children[1][1]": true
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Проверка name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка age": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Проверка salary": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[0][0]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[0][1]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[1][0]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[1][1]": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": false,
+					"Проверка name": true,
+					"Проверка age": false,
+					"Проверка salary": true,
+					"Проверка family.children[0][0]": true,
+					"Проверка family.children[0][1]": true,
+					"Проверка family.children[1][0]": true,
+					"Проверка family.children[1][1]": true
+				}
+			]
+		},
+		{
+			"id": "956d8ae6-7b03-43b3-978c-76019547bb9e",
+			"name": "EP_3",
+			"url": "http://162.55.220.72:5005/object_info_1?name=Sergei&age=23&weight=70",
+			"time": 108,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": true,
+				"Проверка name": true,
+				"Проверка age": true,
+				"Проверка daily_food": true,
+				"Проверка daily_sleep": true
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка daily_food": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка daily_sleep": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": true,
+					"Проверка name": true,
+					"Проверка age": true,
+					"Проверка daily_food": true,
+					"Проверка daily_sleep": true
+				}
+			]
+		},
+		{
+			"id": "2262b86d-1fb7-4344-b5e0-f7492306e511",
+			"name": "EP_4",
+			"url": "http://162.55.220.72:5005/object_info_2?name=Sergei&age=23&salary=75000",
+			"time": 104,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": true,
+				"Проверка start_qa_salary": true,
+				"Проверка qa_salary_after_6_months": true,
+				"Проверка qa_salary_after_12_months": true,
+				"Проверка qa_salary_after_1.5_year": true,
+				"Проверка qa_salary_after_3.5_years": true,
+				"Проверка u_salary_5_years": true,
+				"Проверка u_name[0]": true,
+				"Проверка u_name[1]": true,
+				"Проверка u_name[2]": true,
+				"Проверка u_age": true
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка start_qa_salary": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_6_months": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_12_months": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_1.5_year": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_3.5_years": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_salary_5_years": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_name[0]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_name[1]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_name[2]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_age": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				104
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": true,
+					"Проверка start_qa_salary": true,
+					"Проверка qa_salary_after_6_months": true,
+					"Проверка qa_salary_after_12_months": true,
+					"Проверка qa_salary_after_1.5_year": true,
+					"Проверка qa_salary_after_3.5_years": true,
+					"Проверка u_salary_5_years": true,
+					"Проверка u_name[0]": true,
+					"Проверка u_name[1]": true,
+					"Проверка u_name[2]": true,
+					"Проверка u_age": true
+				}
+			]
+		},
+		{
+			"id": "22343f85-65d9-43a0-8516-4626b6a25f3a",
+			"name": "EP_5",
+			"url": "http://162.55.220.72:5005/object_info_3?name=Sergei&age=23&salary=75000",
+			"time": 104,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": false,
+				"Проверка u_salary_1_5_year": true,
+				"Проверка age": false,
+				"Проверка name": true,
+				"Проверка salary": true,
+				"Проверка family.children[0][0]": true,
+				"Проверка family.children[0][1]": true,
+				"Проверка family.children[1][0]": true,
+				"Проверка family.children[1][1]": true,
+				"Проверка family.pets.cat.age": true,
+				"Проверка family.pets.cat.name": true,
+				"Проверка family.pets.dog.age": true,
+				"Проверка family.pets.dog.name": true
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Проверка u_salary_1_5_year": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка age": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Проверка name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка salary": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[0][0]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[0][1]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[1][0]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.children[1][1]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.pets.cat.age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.pets.cat.name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.pets.dog.age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка family.pets.dog.name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				104
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": false,
+					"Проверка u_salary_1_5_year": true,
+					"Проверка age": false,
+					"Проверка name": true,
+					"Проверка salary": true,
+					"Проверка family.children[0][0]": true,
+					"Проверка family.children[0][1]": true,
+					"Проверка family.children[1][0]": true,
+					"Проверка family.children[1][1]": true,
+					"Проверка family.pets.cat.age": true,
+					"Проверка family.pets.cat.name": true,
+					"Проверка family.pets.dog.age": true,
+					"Проверка family.pets.dog.name": true
+				}
+			]
+		},
+		{
+			"id": "4911a30b-9acd-49ec-a7fc-c259d033f7fa",
+			"name": "EP_6",
+			"url": "http://162.55.220.72:5005/object_info_4?name=Sergei&age=23&salary=75000",
+			"time": 106,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": false,
+				"Проверка age": true,
+				"Проверка name": true,
+				"Проверка salary[0]": true,
+				"Проверка salary[1]": false,
+				"Проверка salary[2]": false
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Проверка age": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка salary[0]": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка salary[1]": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Проверка salary[2]": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				106
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": false,
+					"Проверка age": true,
+					"Проверка name": true,
+					"Проверка salary[0]": true,
+					"Проверка salary[1]": false,
+					"Проверка salary[2]": false
+				}
+			]
+		},
+		{
+			"id": "6d38b44f-04d6-4bb9-ad31-d6bd3b76bebd",
+			"name": "EP_7",
+			"url": "http://162.55.220.72:5005/user_info_2",
+			"time": 111,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Проверка типа переменных": true,
+				"Проверка start_qa_salary": true,
+				"Проверка qa_salary_after_6_months": true,
+				"Проверка qa_salary_after_12_months": true,
+				"Проверка qa_salary_after_1.5_year": true,
+				"Проверка qa_salary_after_3.5_years": true,
+				"Проверка u_salary_5_years": true,
+				"Проверка u_age": true
+			},
+			"testPassFailCounts": {
+				"Проверка типа переменных": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка start_qa_salary": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_6_months": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_12_months": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_1.5_year": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка qa_salary_after_3.5_years": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_salary_5_years": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка u_age": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Проверка типа переменных": true,
+					"Проверка start_qa_salary": true,
+					"Проверка qa_salary_after_6_months": true,
+					"Проверка qa_salary_after_12_months": true,
+					"Проверка qa_salary_after_1.5_year": true,
+					"Проверка qa_salary_after_3.5_years": true,
+					"Проверка u_salary_5_years": true,
+					"Проверка u_age": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 756,
+	"collection": {
+		"requests": [
+			{
+				"id": "a61e7fb9-30ea-415b-af4a-e803e579e8dc",
+				"method": "GET"
+			},
+			{
+				"id": "cc94da3a-f60e-4bcf-9a24-4d6e4d74f837",
+				"method": "POST"
+			},
+			{
+				"id": "956d8ae6-7b03-43b3-978c-76019547bb9e",
+				"method": "GET"
+			},
+			{
+				"id": "2262b86d-1fb7-4344-b5e0-f7492306e511",
+				"method": "GET"
+			},
+			{
+				"id": "22343f85-65d9-43a0-8516-4626b6a25f3a",
+				"method": "GET"
+			},
+			{
+				"id": "4911a30b-9acd-49ec-a7fc-c259d033f7fa",
+				"method": "GET"
+			},
+			{
+				"id": "6d38b44f-04d6-4bb9-ad31-d6bd3b76bebd",
+				"method": "POST"
+			}
+		]
+	}
+}
